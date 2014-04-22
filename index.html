@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <datalist id="words">
+        </datalist>
+        <!-- trick from http://stackoverflow.com/a/4534000/2256700 -->
+        <iframe id="wordFile" src="english.txt" onload="LoadFile();" style="display: none;"></iframe>
+        <input type="text" maxlength="33" size="33" id="input" style="font-family:monospace;"/>
+        <input type="button" onclick="toPaper()" value="To Paper Secret"/>
+        <input type="button" onclick="fromPaper()" value="From Paper Secret"/>
+        <div id="wordbox">
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+    </body>
+</html>
