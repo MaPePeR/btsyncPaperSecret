@@ -10,12 +10,19 @@ var words = [];
         base32map[base32chars[i]] = i;
     }
 
-    var wordBox = document.getElementById("wordbox");
+ /*   var wordBox = document.getElementById("wordbox");
     var wordBoxInner = "";
     for (i = 0; i < 15; i++) {
-        wordBoxInner += '<input class="typeahead" type="text" size="10" id="word' + i + '"/>';
+        if (i % 5 === 0) {
+            wordBoxInner += '<div class="row">';
+        }
+        wordBoxInner += '<div class="col-xs-12 col-md-2"><input class="typeahead form-control" type="text" id="word' + i + '"/></div>';
+        if ((i + 1) % 5  === 0) {
+            wordBoxInner += '<div class="col-md-2 visible-md visible-lg"> </div></div>';
+        }
     }
-    wordBox.innerHTML = wordBoxInner;
+    wordBox.innerHTML = wordBoxInner + '<div class="row"><div class="col-xs-12 col-md-10" ><input type="text" id="paperSecretLine" class="form-control wordInput"></input></div><div class="col-md-2 visible-md visible-lg"> </div></div>';
+    */
 }());
 
 $("#wordFile").load(function () {
@@ -27,7 +34,7 @@ $("#wordFile").load(function () {
     words = strRawContents.split("\n");
 
 
-    var substringMatcher = function (strs) {
+    /*var substringMatcher = function (strs) {
         return function findMatches(q, cb) {
             var matches, substrRegex;
 
@@ -50,7 +57,6 @@ $("#wordFile").load(function () {
             cb(matches);
         };
     };
-    console.log(words.length);
     $('#wordbox .typeahead').typeahead({
         hint: true,
         highlight: true,
@@ -60,7 +66,22 @@ $("#wordFile").load(function () {
             name: 'states',
             displayKey: 'value',
             source: substringMatcher(words)
-        });
+        });*/
+});
+
+$(document).ready(function () {
+    "use strict";
+    $(".wordInput").attr("disabled", true);
+    $("input[name='direction']").change(function () {
+        var val = $("input[name='direction']:checked").val();
+        if (val === "toPaper") {
+            $(".wordInput").attr("disabled", true);
+            $("#secretInput").attr("disabled", false);
+        } else if (val === "toSecret") {
+            $(".wordInput").attr("disabled", false);
+            $("#secretInput").attr("disabled", true);
+        }
+    });
 });
 function btsyncSecretTo11BitsArray(s) {
     "use strict";
@@ -116,18 +137,4 @@ function bitsToSecret(arr) {
         }
     }
     return secret;
-}
-
-function toPaper() {
-    var input = document.getElementById("input");
-    //Base32 encoded. First letter = Type of Key
-    console.log(input.value);
-    console.log(btoa(input.value));
-}
-
-function fromPaper() {
-    var input = document.getElementById("input");
-    //Base32 encoded. First letter = Type of Key
-    console.log(input.value);
-    console.log(btoa(input.value));
 }
