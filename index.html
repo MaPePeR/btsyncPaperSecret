@@ -1,12 +1,17 @@
 <html>
+    <head>
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    </head>
     <body>
-        <datalist id="words">
-        </datalist>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.jquery.min.js"></script>
         <!-- trick from http://stackoverflow.com/a/4534000/2256700 -->
-        <iframe id="wordFile" src="english.txt" onload="LoadFile();" style="display: none;"></iframe>
+        <iframe id="wordFile" src="english.txt" style="display: none;"></iframe>
         <input type="text" maxlength="33" size="33" id="input" style="font-family:monospace;"/>
-        <input type="button" onclick="toPaper()" value="To Paper Secret"/>
-        <input type="button" onclick="fromPaper()" value="From Paper Secret"/>
+        <button type="button" onclick="toPaper()">To Paper Secret</button>
+        <button type="button" onclick="fromPaper()">From Paper Secret</button>
         <div id="wordbox">
         </div>
         <script type="text/javascript" src="script.js"></script>
