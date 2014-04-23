@@ -166,11 +166,10 @@ function convertToSecret() {
     var paperSecret, paperSecretWords, bits;
     paperSecret = $('#paperSecretLine').val();
     paperSecretWords = paperSecret.trim().split(/\s+/);
-    if (paperSecretWords.length != 15) {
+    if (paperSecretWords.length !== 15) {
         error("Need exactly 15 words to restore your secret.");
         return;
     }
-    console.log(paperSecretWords);
     try {
         bits = wordsToBits(paperSecretWords);
         $("#secretInput").val(bitsToSecret(bits));
