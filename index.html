@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>btSync Paper Secret Converter by MaPePeR</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>btSync Paper Secret Converter</h1>
+        <p>Turn BitTorrent Sync secrets into english words for offline purposes.</p>
+
+        <p class="view"><a href="https://github.com/MaPePeR/btsyncPaperSecret">View the Project on GitHub <small>MaPePeR/btsyncPaperSecret</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/MaPePeR/btsyncPaperSecret/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/MaPePeR/btsyncPaperSecret/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/MaPePeR/btsyncPaperSecret">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>This little tool turns <a href="http://www.bittorrent.com/sync">BitTorrent Sync</a> Secrets into 15 words you can write down and copy more easily.</p>
+
+<p>The idea and the wordlist is from the <a href="https://en.bitcoin.it/wiki/BIP_0039">BIP 0039</a> reference implementation: <a href="https://github.com/trezor/python-mnemonic">trezor/python-mnemonic</a></p>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<ul>
+<li>Autocompletion for the words to input them more easily</li>
+<li>Design improvements (Sorry, first time i'm using bootstrap)</li>
+</ul><h2>
+<a name="how-does-it-work" class="anchor" href="#how-does-it-work"><span class="octicon octicon-link"></span></a>How does it work:</h2>
+
+<p>btsync uses 33 characters for displaying the secret to the user.
+The secret only contains characters <code>[A-Z]</code> and <code>[2-7]</code>.  </p>
+
+<p>This results in 26 + 6 = 32 = 2<sup>5</sup> different characters, which can be stored in 5 bits.  </p>
+
+<p>With 33 of this characters the secret has 33 · 5 = 165 bits of data.</p>
+
+<p>With a wordlist of 2048 = 2<sup>11</sup> words the data can now be splitted into 165/11 = 15 words.
+And a single word then represents its number in the list as data.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/MaPePeR">MaPePeR</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
