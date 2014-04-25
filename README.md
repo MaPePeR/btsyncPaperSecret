@@ -5,6 +5,7 @@ This little tool turns [BitTorrent Sync](http://www.bittorrent.com/sync) Secrets
 
 The idea and the wordlist is from the [BIP 0039](https://en.bitcoin.it/wiki/BIP_0039) reference implementation: [trezor/python-mnemonic](https://github.com/trezor/python-mnemonic)
 
+## [Try it right here!](http://mapeper.github.io/btsyncPaperSecret/convert.html)
 
 TODO
 ----
